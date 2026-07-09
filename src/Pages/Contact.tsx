@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PageHero from '../Components/PageHero'
-import { IconLocation, IconEmail, IconClock, IconGlobe, IconCheck } from '../Components/Icons'
+import { IconLocation, IconEmail, IconClock, IconGlobe, IconCheck, IconPhone } from '../Components/Icons'
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false)
@@ -35,6 +35,13 @@ const Contact: React.FC = () => {
                 <div className="contact-detail-text">
                   <strong>Email</strong>
                   <a href="mailto:info@yourvisaassistance.az">info@yourvisaassistance.az</a>
+                </div>
+              </div>
+              <div className="contact-detail">
+                <div className="contact-detail-icon"><IconPhone size={20} /></div>
+                <div className="contact-detail-text">
+                  <strong>Phone</strong>
+                  <a href="tel:+994503636484">+994 50 363 64 84</a>
                 </div>
               </div>
               <div className="contact-detail">
@@ -75,6 +82,10 @@ const Contact: React.FC = () => {
                   <div className="form-group">
                     <label htmlFor="email">Email Address</label>
                     <input type="email" id="email" name="email" required placeholder="john@example.com" />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 000-0000" />
                   </div>
                   <div className="form-group">
                     <label htmlFor="destination">Destination Country</label>

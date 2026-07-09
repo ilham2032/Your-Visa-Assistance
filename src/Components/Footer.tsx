@@ -149,7 +149,7 @@ const Footer: React.FC = () => {
             <h4>Contact Us</h4>
             <p className="footer-contact-item">
               <span className="footer-contact-label">Location</span>
-              Baku, Azerbaijan
+              Chinar Park Business Centre, Block 5, Baku, Azerbaijan
             </p>
             <p className="footer-contact-item">
               <span className="footer-contact-label">Email</span>
@@ -160,6 +160,10 @@ const Footer: React.FC = () => {
             <p className="footer-contact-item">
               <span className="footer-contact-label">Hours</span>
               Mon – Fri, 9:00 AM – 6:00 PM
+            </p>
+             <p className="footer-contact-item">
+              <span className="footer-contact-label">Phone</span>
+              +994 50 363 64 84
             </p>
           </div>
         </div>
