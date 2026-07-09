@@ -1,103 +1,172 @@
-import React from 'react'
-import { Link } from 'react-router'
-import logo from '../assets/YVA_richblue-removebg-preview-e1764236845826.png'
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router";
+import logo from "../assets/yva-logo.png";
+import "../styles/navbar.css";
+
+const serviceLinks = [
+  {
+    to: "/services/visa-services",
+    label: "Visa Services",
+    desc: "Application & documentation",
+  },
+  {
+    to: "/services/robotics-competitions",
+    label: "Robotics Competitions",
+    desc: "Team travel support",
+  },
+  {
+    to: "/services/travel-coordination",
+    label: "Travel Coordination",
+    desc: "Flights & itineraries",
+  },
+  {
+    to: "/services/additional-support",
+    label: "Additional Support",
+    desc: "Translation & insurance",
+  },
+];
 
 const Navbar: React.FC = () => {
-    return (
-        <header>
-            <nav className="nav">
-                <div className="nav-inner">
-                    <Link to="/" className="nav-brand">
-                        <img src={logo} alt="Your Visa Assistance" className="nav-logo" />
-                        <span className="brand-text">Your Visa Assistance</span>
-                    </Link>
-                    <div className="nav-links">
-                        <Link to="/" className="nav-link">Home</Link>
-                        <Link to="/about" className="nav-link">About</Link>
-                        <Link to="/contact" className="nav-link">Contact</Link>
-                    </div>
-                </div>
-            </nav>
-            <style>{`
-                .nav {
-                    background: white;
-                    padding: 16px 0;
-                    border-bottom: 1px solid #e5e7eb;
-                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-                    position: sticky;
-                    top: 0;
-                    z-index: 100;
-                }
-                .nav-inner {
-                    max-width: 1400px;
-                    margin: 0 auto;
-                    padding: 0 40px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-                .nav-brand {
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    text-decoration: none;
-                    font-weight: 700;
-                    color: #1e3a8a;
-                }
-                .nav-logo {
-                    height: 50px;
-                    width: auto;
-                }
-                .brand-text {
-                    font-size: 18px;
-                    font-weight: 700;
-                    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                }
-                .nav-links {
-                    display: flex;
-                    gap: 36px;
-                }
-                .nav-link {
-                    color: #4b5563;
-                    text-decoration: none;
-                    font-weight: 500;
-                    font-size: 15px;
-                    transition: color 0.3s ease;
-                    position: relative;
-                }
-                .nav-link:hover {
-                    color: #1e3a8a;
-                }
-                .nav-link::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -4px;
-                    left: 0;
-                    width: 0;
-                    height: 2px;
-                    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-                    transition: width 0.3s ease;
-                }
-                .nav-link:hover::after {
-                    width: 100%;
-                }
-                @media (max-width: 768px) {
-                    .nav-inner {
-                        padding: 0 20px;
-                    }
-                    .brand-text {
-                        display: none;
-                    }
-                    .nav-links {
-                        gap: 20px;
-                    }
-                }
-            `}</style>
-        </header>
-    )
-}
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-export default Navbar
+  useEffect(() => {
+    setMobileOpen(false);
+    setServicesOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isActive = (path: string) =>
+    path === "/"
+      ? location.pathname === "/"
+      : location.pathname.startsWith(path);
+
+  const isServiceActive = serviceLinks.some((s) => location.pathname === s.to);
+  const isDesktop = () => window.matchMedia("(min-width: 969px)").matches;
+
+  return (
+    <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className="navbar-accent" aria-hidden="true">
+        <span className="accent-blue" />
+        <span className="accent-white" />
+        <span className="accent-red" />
+      </div>
+
+      <nav className="navbar-inner container">
+        <Link
+          to="/"
+          className="navbar-brand"
+          aria-label="Your Visa Assistance — Home"
+        >
+          <img src={logo} alt="Your Visa Assistance" className="navbar-logo" />
+        </Link>
+
+        <button
+          className={`navbar-toggle ${mobileOpen ? "open" : ""}`}
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <div className={`navbar-menu ${mobileOpen ? "open" : ""}`}>
+          <Link
+            to="/"
+            className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className={`nav-link ${isActive("/about") ? "active" : ""}`}
+          >
+            About
+          </Link>
+
+          <div
+            className={`nav-dropdown ${servicesOpen ? "open" : ""} ${isServiceActive ? "active" : ""}`}
+            onMouseEnter={() => isDesktop() && setServicesOpen(true)}
+            onMouseLeave={() => isDesktop() && setServicesOpen(false)}
+          >
+            <button
+              className="nav-link nav-dropdown-trigger"
+              onClick={() => setServicesOpen(!servicesOpen)}
+              aria-expanded={servicesOpen}
+            >
+              Services
+              <svg
+                className="dropdown-chevron"
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="none"
+              >
+                <path
+                  d="M2 3.5L5 6.5L8 3.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <div className="nav-dropdown-menu">
+              {serviceLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`nav-dropdown-item ${location.pathname === link.to ? "active" : ""}`}
+                >
+                  <span className="dropdown-item-label">{link.label}</span>
+                  <span className="dropdown-item-desc">{link.desc}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <Link
+            to="/faq"
+            className={`nav-link ${isActive("/faq") ? "active" : ""}`}
+          >
+            FAQ
+          </Link>
+          <Link
+            to="/countries"
+            className={`nav-link ${isActive("/countries") ? "active" : ""}`}
+          >
+            Countries
+          </Link>
+          <Link
+            to="/contact"
+            className={`nav-link ${isActive("/contact") ? "active" : ""}`}
+          >
+            Contact
+          </Link>
+
+          <Link to="/contact" className="nav-cta">
+            Free Consultation
+          </Link>
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default Navbar;

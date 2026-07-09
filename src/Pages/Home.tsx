@@ -1,5 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router'
 import AnimatedBackground from '../Components/AnimatedBackground'
+import { IconVisa, IconTravel, IconSupport, IconGlobe, IconDocument, IconFast, IconChat } from '../Components/Icons'
+import '../styles/home.css'
 
 const Home: React.FC = () => {
   return (
@@ -7,436 +10,128 @@ const Home: React.FC = () => {
       <section className="hero">
         <AnimatedBackground />
         <div className="hero-inner">
-          <div className="hero-content">
-            <h1 className="hero-title animate-slide-left">Your Visa Assistance</h1>
-            <p className="hero-subtitle animate-fade" style={{ animationDelay: '0.2s' }}>Professional visa support and consultancy based in Azerbaijan</p>
-            <p className="hero-description animate-slide-up" style={{ animationDelay: '0.4s' }}>Navigate your immigration journey with expert guidance from our team of experienced professionals</p>
-            <div className="hero-buttons animate-scale" style={{ animationDelay: '0.6s' }}>
-              <a href="#contact" className="cta-primary">Get a Free Consultation</a>
-              <a href="#services" className="cta-secondary">Explore Services</a>
-            </div>
+          <span className="hero-badge">Trusted Visa Consultancy · Baku, Azerbaijan</span>
+          <h1 className="hero-title">Your Gateway to <span>Global Travel</span></h1>
+          <p className="hero-subtitle">
+            Expert visa assistance for every country in the world — from application to approval.
+          </p>
+          <div className="hero-buttons">
+            <Link to="/contact" className="btn btn-primary">Get a Free Consultation</Link>
+            <Link to="/services/visa-services" className="btn btn-secondary">Explore Services</Link>
           </div>
         </div>
       </section>
 
       <section className="stats-section">
-        <div className="stats-container">
-          <div className="stat-item">
-            <div className="stat-number">195</div>
-            <div className="stat-label">Countries</div>
-          </div>
-          <div className="stat-divider"></div>
-          <div className="stat-item">
-            <div className="stat-number">104,148</div>
-            <div className="stat-label">Applications</div>
+        <div className="container">
+          <div className="stats-row">
+            <div className="stat-item">
+              <div className="stat-number">195<span>+</span></div>
+              <div className="stat-label">Countries Covered</div>
+            </div>
+            <div className="stat-divider" />
+            <div className="stat-item">
+              <div className="stat-number">100K<span>+</span></div>
+              <div className="stat-label">Applications Processed</div>
+            </div>
+            <div className="stat-divider" />
+            <div className="stat-item">
+              <div className="stat-number">98<span>%</span></div>
+              <div className="stat-label">Client Satisfaction</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="services" id="services">
-        <div className="services-container">
+      <section className="section section-alt">
+        <div className="container">
           <div className="section-header">
-            <h2>Our Services</h2>
-            <p>Everything you need for a successful visa application</p>
+            <span className="section-label">What We Offer</span>
+            <h2>Comprehensive Visa & Travel Services</h2>
+            <p>End-to-end support tailored to your destination, timeline, and travel goals.</p>
           </div>
-          <div className="cards">
+          <div className="card-grid">
+            <Link to="/services/visa-services" className="card card-link">
+              <div className="card-icon"><IconVisa size={24} /></div>
+              <h3>Visa Services</h3>
+              <p>Expert guidance on visa types, eligibility, documentation, and application submission for any country.</p>
+            </Link>
+            <Link to="/services/travel-coordination" className="card card-link">
+              <div className="card-icon"><IconTravel size={24} /></div>
+              <h3>Travel Coordination</h3>
+              <p>Flight bookings, itinerary planning, and travel logistics coordinated alongside your visa process.</p>
+            </Link>
+            <Link to="/services/additional-support" className="card card-link">
+              <div className="card-icon"><IconSupport size={24} /></div>
+              <h3>Additional Support</h3>
+              <p>Document translation, insurance, accommodation guidance, and post-approval travel assistance.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Why Choose Us</span>
+            <h2>Professional, Reliable, Worldwide</h2>
+            <p>We combine deep immigration expertise with personalized service for every client.</p>
+          </div>
+          <div className="card-grid">
             <div className="card">
-              <div className="card-icon">📋</div>
-              <h3>Visa Consultation</h3>
-              <p>Personalised guidance for the right visa path based on your destination and circumstances.</p>
+              <div className="card-icon"><IconGlobe size={24} /></div>
+              <h3>Every Country</h3>
+              <p>We assist with visa applications for all 195 countries — no destination is out of reach.</p>
             </div>
             <div className="card">
-              <div className="card-icon">✅</div>
-              <h3>Application Support</h3>
-              <p>End-to-end application preparation and submission with expert review.</p>
+              <div className="card-icon"><IconDocument size={24} /></div>
+              <h3>Document Expertise</h3>
+              <p>Thorough review ensures your application meets all official requirements the first time.</p>
             </div>
             <div className="card">
-              <div className="card-icon">📄</div>
-              <h3>Document Review</h3>
-              <p>Ensure all your documents meet official requirements for approval.</p>
+              <div className="card-icon"><IconFast size={24} /></div>
+              <h3>Fast Track Options</h3>
+              <p>Expedited processing available for urgent travel needs and time-sensitive applications.</p>
             </div>
             <div className="card">
-              <div className="card-icon">🚀</div>
-              <h3>Fast Track Service</h3>
-              <p>Expedited processing for time-sensitive visa applications.</p>
+              <div className="card-icon"><IconChat size={24} /></div>
+              <h3>Dedicated Support</h3>
+              <p>Personal consultants guide you through every step — from first inquiry to visa approval.</p>
+            </div>
+          </div>
+
+          <div className="process-steps">
+            <div className="process-step">
+              <div className="process-step-num">1</div>
+              <h4>Free Consultation</h4>
+              <p>Discuss your travel goals and visa requirements with our experts.</p>
+            </div>
+            <div className="process-step">
+              <div className="process-step-num">2</div>
+              <h4>Document Preparation</h4>
+              <p>We prepare and review all required documents for your application.</p>
+            </div>
+            <div className="process-step">
+              <div className="process-step-num">3</div>
+              <h4>Application Submission</h4>
+              <p>Your application is submitted with full accuracy and compliance.</p>
+            </div>
+            <div className="process-step">
+              <div className="process-step-num">4</div>
+              <h4>Visa Approval</h4>
+              <p>Receive your visa and travel with confidence to your destination.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="cta-section">
-        <div className="cta-inner">
+      <section className="cta-banner">
+        <div className="cta-banner-inner">
           <h2>Ready to Start Your Visa Journey?</h2>
-          <p>Let our experts guide you through every step</p>
-          <a href="#contact" className="cta-button">Schedule a Consultation Today</a>
+          <p>Schedule a free consultation with our experts and take the first step toward your destination.</p>
+          <Link to="/contact" className="btn btn-white">Schedule a Consultation Today</Link>
         </div>
       </section>
-
-
-      <style>{`
-        .home {
-          padding: 0;
-        }
-
-        /* Hero Section */
-        .hero {
-          position: relative;
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          padding-top: 60px;
-        }
-
-        .hero-inner {
-          position: relative;
-          z-index: 10;
-          max-width: 850px;
-          margin: 0 auto;
-          padding: 80px 40px;
-          text-align: center;
-        }
-
-        .hero-content {
-          animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .hero-title {
-          margin: 0 0 24px;
-          font-size: 64px;
-          font-weight: 800;
-          background: linear-gradient(135deg, #dc2626 0%, #1e3a8a 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          line-height: 1.15;
-          letter-spacing: -1px;
-          font-family: var(--heading);
-        }
-
-        .hero-subtitle {
-          margin: 0 0 20px;
-          font-size: 22px;
-          font-weight: 700;
-          color: #1e3a8a;
-          line-height: 1.4;
-          font-family: var(--heading);
-        }
-
-        .hero-description {
-          margin: 0 0 48px;
-          font-size: 17px;
-          color: #4b5563;
-          max-width: 700px;
-          margin-left: auto;
-          margin-right: auto;
-          line-height: 1.8;
-          font-weight: 500;
-        }
-
-        .hero-buttons {
-          display: flex;
-          gap: 20px;
-          justify-content: center;
-          flex-wrap: wrap;
-        }
-
-        .cta-primary {
-          background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-          color: white;
-          padding: 15px 36px;
-          border-radius: 8px;
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 15px;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
-          display: inline-block;
-        }
-
-        .cta-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
-        }
-
-        .cta-secondary {
-          background: white;
-          color: #1e3a8a;
-          padding: 15px 36px;
-          border-radius: 8px;
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 15px;
-          border: 2px solid #1e3a8a;
-          transition: all 0.3s ease;
-          display: inline-block;
-        }
-
-        .cta-secondary:hover {
-          background: #f0f4ff;
-          transform: translateY(-2px);
-        }
-
-        /* Stats Section */
-        .stats-section {
-          padding: 80px 40px;
-          background: white;
-          border-top: 1px solid #e5e7eb;
-          border-bottom: 1px solid #e5e7eb;
-        }
-
-        .stats-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 80px;
-        }
-
-        .stat-item {
-          text-align: center;
-          flex: 1;
-          max-width: 300px;
-        }
-
-        .stat-number {
-          font-size: 56px;
-          font-weight: 800;
-          background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          margin-bottom: 12px;
-          font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        .stat-label {
-          font-size: 18px;
-          font-weight: 600;
-          color: #6b7280;
-          font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        .stat-divider {
-          width: 2px;
-          height: 80px;
-          background: linear-gradient(180deg, transparent 0%, #e5e7eb 50%, transparent 100%);
-        }
-
-        /* Services Section */
-        .services {
-          padding: 120px 40px;
-          background: #f8fafc;
-        }
-
-        .services-container {
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .section-header {
-          text-align: center;
-          margin-bottom: 80px;
-        }
-
-        .section-header h2 {
-          margin: 0 0 16px;
-          font-size: 44px;
-          font-weight: 800;
-          color: #1f2937;
-          letter-spacing: -0.5px;
-        }
-
-        .section-header p {
-          margin: 0;
-          font-size: 17px;
-          color: #6b7280;
-          line-height: 1.6;
-        }
-
-        .cards {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 32px;
-        }
-
-        .card {
-          background: white;
-          padding: 40px;
-          border-radius: 12px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-          transition: all 0.3s ease;
-          border: 1px solid #e5e7eb;
-        }
-
-        .card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-icon {
-          font-size: 48px;
-          margin-bottom: 20px;
-          display: block;
-        }
-
-        .card h3 {
-          margin: 0 0 14px;
-          font-size: 19px;
-          font-weight: 700;
-          color: #1f2937;
-        }
-
-        .card p {
-          margin: 0;
-          color: #6b7280;
-          font-size: 14px;
-          line-height: 1.7;
-        }
-
-        /* CTA Section */
-        .cta-section {
-          background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-          padding: 120px 40px;
-          text-align: center;
-        }
-
-        .cta-inner {
-          max-width: 700px;
-          margin: 0 auto;
-        }
-
-        .cta-inner h2 {
-          margin: 0 0 16px;
-          font-size: 40px;
-          font-weight: 800;
-          color: white;
-          letter-spacing: -0.5px;
-        }
-
-        .cta-inner p {
-          margin: 0 0 40px;
-          font-size: 17px;
-          color: rgba(255, 255, 255, 0.95);
-          line-height: 1.6;
-        }
-
-        .cta-button {
-          background: white;
-          color: #1e3a8a;
-          padding: 15px 40px;
-          border-radius: 8px;
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 15px;
-          display: inline-block;
-          transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-          .hero-inner {
-            padding: 60px 24px;
-          }
-
-          .hero-title {
-            font-size: 44px;
-            margin-bottom: 16px;
-          }
-
-          .hero-subtitle {
-            font-size: 20px;
-          }
-
-          .hero-description {
-            font-size: 15px;
-            margin-bottom: 32px;
-          }
-
-          .hero-buttons {
-            gap: 12px;
-          }
-
-          .stats-section {
-            padding: 60px 24px;
-          }
-
-          .stats-container {
-            flex-direction: column;
-            gap: 40px;
-          }
-
-          .stat-divider {
-            width: 80px;
-            height: 2px;
-          }
-
-          .stat-number {
-            font-size: 40px;
-          }
-
-          .stat-label {
-            font-size: 16px;
-          }
-
-          .section-header {
-            margin-bottom: 50px;
-          }
-
-          .section-header h2 {
-            font-size: 32px;
-          }
-
-          .services {
-            padding: 80px 24px;
-          }
-
-          .cards {
-            gap: 20px;
-          }
-
-          .card {
-            padding: 28px;
-          }
-
-          .cta-section {
-            padding: 80px 24px;
-          }
-
-          .cta-inner h2 {
-            font-size: 32px;
-          }
-
-          .cta-inner p {
-            margin-bottom: 28px;
-          }
-
-          .cta-primary,
-          .cta-secondary,
-          .cta-button {
-            width: 100%;
-            max-width: 280px;
-          }
-        }
-      `}</style>
     </main>
   )
 }
