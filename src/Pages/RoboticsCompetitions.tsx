@@ -8,11 +8,31 @@ import FSI from "../assets/images-removebg-preview (1).png";
 import FIRST from "../assets/FIRST_Robotics_Competition_(logo).svg";
 
 const competitionLogos = [
-  { name: "RoboChallenge", src: RoboChallenge },
-  { name: "Robotex", src: Robotex },
-  { name: "Fibonacci", src: Fibonacci },
-  { name: "FSI All Japan Robot", src: FSI },
-  { name: "FIRST robotics Competition", src: FIRST },
+  {
+    name: "RoboChallenge",
+    src: RoboChallenge,
+    url: "https://robochallenge.ro/",
+  },
+  {
+    name: "Robotex",
+    src: Robotex,
+    url: "https://robotex.international/",
+  },
+  {
+    name: "Fibonacci",
+    src: Fibonacci,
+    url: "https://www.fibonacci.international/",
+  },
+  {
+    name: "FSI All Japan Robot",
+    src: FSI,
+    url: "https://www.fsi.co.jp/sumo/GF/indexe.html",
+  },
+  {
+    name: "FIRST Robotics Competition",
+    src: FIRST,
+    url: "https://www.firstinspires.org/programs/frc/",
+  },
 ];
 
 const RoboticsCompetitions: React.FC = () => {
@@ -36,13 +56,16 @@ const RoboticsCompetitions: React.FC = () => {
                 {competitionLogos
                   .concat(competitionLogos)
                   .map((competition, index) => (
-                    <div
+                    <a
                       className="marquee-logo"
                       key={`${competition.name}-${index}`}
+                      href={competition.url}
+                      target="_blank"
+                      rel="noreferrer"
                       aria-label={competition.name}
                     >
                       <img src={competition.src} alt={competition.name} />
-                    </div>
+                    </a>
                   ))}
               </div>
             </div>
