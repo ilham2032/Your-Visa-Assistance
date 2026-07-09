@@ -1,33 +1,41 @@
 /* ===== Brand Design Tokens (matched to YVA logo) ===== */
 :root {
-  --blue-brand: #163a6e;
-  --blue-900: #163a6e;
-  --blue-800: #1a4480;
-  --blue-600: #1e5599;
-  --blue-500: #2563a8;
-  --blue-100: #c8daf0;
-  --blue-50: #eef4fb;
-  --red-brand: #8b2635;
-  --red-700: #6e1e2a;
-  --red-600: #8b2635;
-  --red-500: #a03040;
-  --red-50: #fdf2f4;
+  --font-heading: "Angelina Pro Display", "Gotham", sans-serif;
+  --font-sans: "Sage", "Gotham", sans-serif;
+  --blue-brand: #0b2275;
+  --blue-900: #0b2275;
+  --blue-800: #081b55;
+  --blue-600: #0348af;
+  --blue-500: #1564c0;
+  --blue-100: #d7e4fa;
+  --blue-50: #edf4ff;
+  --red-brand: #721121;
+  --red-700: #5a0e1a;
+  --red-600: #721121;
+  --red-500: #8c1b31;
+  --red-50: #f6e7e8;
   --white: #ffffff;
-  --gray-900: #1a1a2e;
-  --gray-700: #374151;
-  --gray-600: #4b5563;
-  --gray-500: #6b7280;
-  --gray-200: #e2e8f0;
-  --gray-100: #f1f5f9;
-  --gray-50: #f8fafc;
-  --shadow-sm: 0 1px 4px rgba(22, 58, 110, 0.06);
-  --shadow-md: 0 6px 24px rgba(22, 58, 110, 0.09);
-  --shadow-lg: 0 16px 48px rgba(22, 58, 110, 0.13);
+  --gray-900: #1f1f23;
+  --gray-700: #4e4e56;
+  --gray-600: #74747e;
+  --gray-500: #9a9aa4;
+  --gray-200: #e6e7e8;
+  --gray-100: #f2f3f4;
+  --gray-50: #f9f9fa;
+  --shadow-sm: 0 1px 4px rgba(11, 34, 117, 0.06);
+  --shadow-md: 0 6px 24px rgba(11, 34, 117, 0.09);
+  --shadow-lg: 0 16px 48px rgba(11, 34, 117, 0.13);
   --radius: 8px;
   --radius-lg: 12px;
   --container: 1180px;
   --nav-height: 76px;
-  --border: rgba(22, 58, 110, 0.08);
+  --border: rgba(11, 34, 117, 0.08);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--gray-900);
+  background: var(--gray-50);
 }
 
 /* ===== Layout ===== */
@@ -67,7 +75,7 @@
   text-transform: uppercase;
   color: var(--red-brand);
   margin-bottom: 14px;
-  font-family: var(--sans);
+  font-family: var(--font-heading);
 }
 
 .section-header h2 {
@@ -77,14 +85,14 @@
   color: var(--gray-900);
   letter-spacing: -0.3px;
   line-height: 1.2;
-  font-family: var(--heading);
+  font-family: var(--font-heading);
 }
 
 .section-header p {
   margin: 0 auto;
   max-width: 580px;
   font-size: 16px;
-  color: var(--gray-500);
+  color: var(--gray-700);
   line-height: 1.75;
 }
 
@@ -102,20 +110,20 @@
   border: 2px solid transparent;
   cursor: pointer;
   transition: all 0.25s ease;
-  font-family: var(--sans);
+  font-family: var(--font-sans);
   letter-spacing: 0.02em;
 }
 
 .btn-primary {
   background: var(--blue-brand);
   color: var(--white);
-  box-shadow: 0 4px 14px rgba(22, 58, 110, 0.28);
+  box-shadow: 0 4px 14px rgba(11, 34, 117, 0.28);
 }
 
 .btn-primary:hover {
-  background: var(--blue-800);
+  background: var(--blue-600);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(22, 58, 110, 0.35);
+  box-shadow: 0 6px 20px rgba(11, 34, 117, 0.35);
 }
 
 .btn-secondary {
@@ -132,12 +140,13 @@
 .btn-accent {
   background: var(--red-brand);
   color: var(--white);
-  box-shadow: 0 4px 14px rgba(139, 38, 53, 0.28);
+  box-shadow: 0 4px 14px rgba(114, 17, 33, 0.28);
 }
 
 .btn-accent:hover {
   background: var(--red-700);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(114, 17, 33, 0.35);
 }
 
 .btn-white {
